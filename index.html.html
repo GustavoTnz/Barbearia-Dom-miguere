@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Dom Miguere | Desde 2019 | Agendamento Online</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amberWood: {
+                            DEFAULT: '#C6934B',
+                            hover: '#AE7E3A',
+                            light: '#E2B878',
+                            dark: '#875B22'
+                        },
+                        leather: '#5C381E',
+                        dark: {
+                            base: '#0D0B0A',
+                            card: '#161311',
+                            surface: '#201C19',
+                            border: '#332B25'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .vintage-font { font-family: 'Cinzel', serif; }
+        .script-font { font-family: 'Playfair Display', serif; }
+
+        .barber-stripe {
+            background: repeating-linear-gradient(
+                -45deg,
+                #C6934B,
+                #C6934B 10px,
+                #161311 10px,
+                #161311 20px,
+                #875B22 20px,
+                #875B22 30px,
+                #161311 30px,
+                #161311 40px
+            );
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0D0B0A; }
+        ::-webkit-scrollbar-thumb { background: #332B25; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C6934B; }
+    </style>
+</head>
+<body class="bg-dark-base text-gray-300 antialiased selection:bg-amberWood selection:text-black">
+
+    <div class="h-1.5 w-full barber-stripe"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-dark-base/95 backdrop-blur-md border-b border-dark-border transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-amberWood/10 border border-amberWood/30 flex items-center justify-center text-amberWood text-xl shadow-lg">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <div>
+                    <div class="vintage-font text-xl sm:text-2xl font-bold tracking-wider text-white uppercase leading-none">
+                        DOM <span class="text-amberWood">MIGUERE</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-gray-400 font-semibold block mt-0.5">Barbearia • Since 2019</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-semibold">
+                <a href="#inicio" class="hover:text-amberWood transition">Início</a>
+                <a href="#servicos" class="hover:text-amberWood transition">Serviços</a>
+                <a href="#agendamento" class="text-amberWood font-bold hover:underline transition">Agendar Online</a>
+                <a href="#galeria" class="hover:text-amberWood transition">Galeria</a>
+                <a href="#localizacao" class="hover:text-amberWood transition">Localização</a>
+                <a href="admin.html" target="_blank" class="text-gray-500 hover:text-amberWood text-[11px]"><i class="fa-solid fa-lock text-xs"></i> Acesso Barbeiro</a>
+            </nav>
+
+            <a href="#agendamento" class="hidden sm:inline-flex items-center gap-2 bg-amberWood hover:bg-amberWood-hover text-black px-6 py-2.5 rounded-lg font-bold uppercase tracking-wider text-xs transition transform hover:-translate-y-0.5 shadow-lg shadow-amberWood/15">
+                <i class="fa-regular fa-calendar-check text-sm"></i> Marcar Horário
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1920" alt="Ambiente Dom Miguere" class="w-full h-full object-cover object-center brightness-[0.22]">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            
+            <div data-aos="fade-down" class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border border-amberWood/40 bg-amberWood/10 text-amberWood text-xs uppercase tracking-[0.2em] font-bold mb-6">
+                <i class="fa-solid fa-crown text-xs"></i> Tradição & Estilo Masculino • Desde 2019
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-delay="100" class="vintage-font text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-white mb-4 leading-tight">
+                BARBEARIA <br><span class="text-amberWood script-font lowercase italic text-5xl sm:text-7xl md:text-8xl">Dom</span> MIGUERE
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-delay="200" class="text-gray-300 text-sm sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Agende seu horário online em segundos com confirmação imediata. Corte de precisão e barboterapia tradicional.
+            </p>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#agendamento" class="inline-flex items-center justify-center gap-3 bg-amberWood hover:bg-amberWood-hover text-black px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow-xl shadow-amberWood/20 transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-calendar-days text-sm"></i> Agendar Agora
+                </a>
+                <a href="#servicos" class="inline-flex items-center justify-center gap-2 border border-dark-border hover:border-amberWood/50 bg-dark-card/80 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-wider text-xs transition">
+                    Ver Tabela de Serviços
+                </a>
+            </div>
+
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left sm:text-center pt-8 border-t border-dark-border">
+                <div class="p-3 bg-dark-card/60 rounded-lg border border-dark-border">
+                    <span class="vintage-font text-2xl sm:text-3xl font-bold text-amberWood block">2019</span>
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Ano de Fundação</span>
+                </div>
+                <div class="p-3 bg-dark-card/60 rounded-lg border border-dark-border">
+                    <span class="vintage-font text-2xl sm:text-3xl font-bold text-amberWood block">100%</span>
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Navalha & Toalha Quente</span>
+                </div>
+                <div class="p-3 bg-dark-card/60 rounded-lg border border-dark-border">
+                    <span class="vintage-font text-2xl sm:text-3xl font-bold text-amberWood block">5.0 ★</span>
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Avaliação dos Clientes</span>
+                </div>
+                <div class="p-3 bg-dark-card/60 rounded-lg border border-dark-border">
+                    <span class="vintage-font text-2xl sm:text-3xl font-bold text-amberWood block">VIP</span>
+                    <span class="text-[11px] uppercase tracking-wider text-gray-400 font-medium">Café, Cerveja & Wi-Fi</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-24 bg-dark-card border-y border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amberWood text-xs uppercase tracking-[0.2em] font-bold block mb-2">Tradição em Cada Detalhe</span>
+                <h2 class="vintage-font text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Nossos Serviços</h2>
+                <div class="w-16 h-1 bg-amberWood mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div data-aos="fade-up" data-aos-delay="100" class="p-6 bg-dark-base rounded-2xl border border-dark-border hover:border-amberWood/50 transition flex items-start justify-between">
+                    <div class="pr-4">
+                        <h3 class="vintage-font text-lg font-bold text-white uppercase">Corte Masculino (Social / Degradê)</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Lavagem especial, corte estilizado na tesoura ou máquina e finalização com pomada.</p>
+                        <span class="inline-block mt-3 text-xs text-amberWood font-semibold"><i class="fa-regular fa-clock mr-1"></i> 40 min</span>
+                    </div>
+                    <span class="vintage-font text-2xl font-bold text-amberWood shrink-0">R$ 45</span>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200" class="p-6 bg-dark-base rounded-2xl border border-dark-border hover:border-amberWood/50 transition flex items-start justify-between">
+                    <div class="pr-4">
+                        <h3 class="vintage-font text-lg font-bold text-white uppercase">Barboterapia Tradicional Dom Miguere</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Esfoliação, óleo hidratante, aplicação de toalha quente e navalha afiada.</p>
+                        <span class="inline-block mt-3 text-xs text-amberWood font-semibold"><i class="fa-regular fa-clock mr-1"></i> 35 min</span>
+                    </div>
+                    <span class="vintage-font text-2xl font-bold text-amberWood shrink-0">R$ 40</span>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300" class="p-6 bg-dark-base rounded-2xl border-2 border-amberWood/60 shadow-lg transition flex items-start justify-between relative overflow-hidden">
+                    <span class="absolute top-2 right-2 text-[9px] uppercase font-bold tracking-widest bg-amberWood text-black px-2 py-0.5 rounded">Mais Pedido</span>
+                    <div class="pr-4">
+                        <h3 class="vintage-font text-lg font-bold text-white uppercase">Combo Dom Miguere (Cabelo + Barba)</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Corte refinado + barboterapia premium relaxante.</p>
+                        <span class="inline-block mt-3 text-xs text-amberWood font-semibold"><i class="fa-regular fa-clock mr-1"></i> 1h 15 min</span>
+                    </div>
+                    <span class="vintage-font text-2xl font-bold text-amberWood shrink-0">R$ 75</span>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="400" class="p-6 bg-dark-base rounded-2xl border border-dark-border hover:border-amberWood/50 transition flex items-start justify-between">
+                    <div class="pr-4">
+                        <h3 class="vintage-font text-lg font-bold text-white uppercase">Acabamento, Pezinho & Sobrancelha</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mt-1">Alinhamento de contornos faciais e design de sobrancelha.</p>
+                        <span class="inline-block mt-3 text-xs text-amberWood font-semibold"><i class="fa-regular fa-clock mr-1"></i> 20 min</span>
+                    </div>
+                    <span class="vintage-font text-2xl font-bold text-amberWood shrink-0">R$ 25</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULO DE AGENDAMENTO -->
+    <section id="agendamento" class="py-24 bg-dark-base relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-amberWood text-xs uppercase tracking-[0.2em] font-bold block mb-2">Reserva Garantida</span>
+                <h2 class="vintage-font text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Agende Seu Horário</h2>
+                <p class="text-gray-400 text-sm mt-2">Escolha os serviços e confirme seu agendamento.</p>
+                <div class="w-16 h-1 bg-amberWood mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div data-aos="zoom-in" class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-10 shadow-2xl relative">
+                
+                <form id="bookingForm" onsubmit="event.preventDefault(); processSmartBooking();" class="space-y-8">
+                    
+                    <!-- 1. Serviços -->
+                    <div>
+                        <label class="block text-xs uppercase font-bold tracking-wider text-amberWood mb-4">
+                            1. Selecione os serviços:
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="relative flex items-center justify-between p-4 bg-dark-surface rounded-xl border border-dark-border cursor-pointer hover:border-amberWood/50 transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" name="services" value="Corte Masculino" data-price="45" onchange="calculateBookingTotal()" class="w-5 h-5 accent-[#C6934B] rounded">
+                                    <div>
+                                        <span class="font-semibold text-white block text-sm">Corte Masculino</span>
+                                        <span class="text-xs text-gray-400">Degradê / Tesoura</span>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-amberWood text-sm">R$ 45,00</span>
+                            </label>
+
+                            <label class="relative flex items-center justify-between p-4 bg-dark-surface rounded-xl border border-dark-border cursor-pointer hover:border-amberWood/50 transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" name="services" value="Barboterapia Tradicional" data-price="40" onchange="calculateBookingTotal()" class="w-5 h-5 accent-[#C6934B] rounded">
+                                    <div>
+                                        <span class="font-semibold text-white block text-sm">Barboterapia</span>
+                                        <span class="text-xs text-gray-400">Toalha quente & navalha</span>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-amberWood text-sm">R$ 40,00</span>
+                            </label>
+
+                            <label class="relative flex items-center justify-between p-4 bg-dark-surface rounded-xl border border-dark-border cursor-pointer hover:border-amberWood/50 transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" name="services" value="Combo Completo (Cabelo + Barba)" data-price="75" onchange="calculateBookingTotal()" class="w-5 h-5 accent-[#C6934B] rounded">
+                                    <div>
+                                        <span class="font-semibold text-white block text-sm">Combo Dom Miguere</span>
+                                        <span class="text-xs text-gray-400">Corte + Barboterapia</span>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-amberWood text-sm">R$ 75,00</span>
+                            </label>
+
+                            <label class="relative flex items-center justify-between p-4 bg-dark-surface rounded-xl border border-dark-border cursor-pointer hover:border-amberWood/50 transition">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" name="services" value="Sobrancelha & Acabamento" data-price="25" onchange="calculateBookingTotal()" class="w-5 h-5 accent-[#C6934B] rounded">
+                                    <div>
+                                        <span class="font-semibold text-white block text-sm">Sobrancelha / Pezinho</span>
+                                        <span class="text-xs text-gray-400">Alinhamento na navalha</span>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-amberWood text-sm">R$ 25,00</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. Dados do Cliente -->
+                    <div>
+                        <label class="block text-xs uppercase font-bold tracking-wider text-amberWood mb-4">
+                            2. Seus dados e horário:
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase text-gray-400 mb-1">Seu Nome *</label>
+                                <input type="text" id="custName" required placeholder="Ex: Lucas Ferreira" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase text-gray-400 mb-1">Seu WhatsApp *</label>
+                                <input type="tel" id="custPhone" required placeholder="Ex: (75) 99999-9999" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase text-gray-400 mb-1">Data *</label>
+                                <input type="date" id="custDate" required class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs uppercase text-gray-400 mb-1">Horário *</label>
+                                <select id="custTime" required class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                                    <option value="" disabled selected>Escolha um horário</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="19:00">19:00</option>
+                                </select>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs uppercase text-gray-400 mb-1">Profissional de Preferência</label>
+                                <select id="custBarber" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                                    <option value="Miguere (Barbeiro Chefe)">Miguere (Barbeiro Chefe)</option>
+                                    <option value="Profissional da Equipe">Profissional da Equipe</option>
+                                    <option value="Qualquer Barbeiro Disponível">Sem preferência</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resumo -->
+                    <div class="p-5 bg-dark-surface/80 rounded-xl border border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs uppercase text-gray-400 font-semibold block">Total dos Serviços</span>
+                            <span id="bookingTotalDisplay" class="vintage-font text-3xl font-bold text-amberWood">R$ 0,00</span>
+                        </div>
+                        <span class="text-xs text-gray-400 text-center sm:text-right">Pagamento efetuado presencialmente no local.</span>
+                    </div>
+
+                    <!-- Botão Submit -->
+                    <div>
+                        <button type="submit" id="submitBtn" class="w-full flex items-center justify-center gap-3 bg-amberWood hover:bg-amberWood-hover text-black py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-xl shadow-amberWood/20 transition transform hover:-translate-y-0.5">
+                            <span id="btnText"><i class="fa-solid fa-calendar-check text-base mr-2"></i> Confirmar Agendamento</span>
+                            <span id="btnLoading" class="hidden"><i class="fa-solid fa-circle-notch fa-spin text-base mr-2"></i> Enviando...</span>
+                        </button>
+                    </div>
+
+                </form>
+
+                <!-- Modal de Confirmação -->
+                <div id="bookingSuccessModal" class="hidden absolute inset-0 bg-dark-card/98 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center p-8 text-center z-20">
+                    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center text-3xl mb-4">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="vintage-font text-2xl sm:text-3xl font-bold text-white uppercase mb-2">Agendamento Confirmado!</h3>
+                    <p class="text-gray-300 text-xs sm:text-sm max-w-md mb-2" id="successDetails"></p>
+                    <p class="text-xs text-emerald-400 font-medium mb-4 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-bolt"></i> Notificação enviada para a barbearia!
+                    </p>
+                    <span class="text-xs text-amberWood uppercase tracking-widest font-bold mb-6 block">Protocolo: #<span id="successProtocol"></span></span>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button id="btnNotifyWhatsapp" class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Abrir Comprovante no WhatsApp
+                        </button>
+                        <button onclick="closeSuccessModal()" class="px-6 py-3 rounded-xl border border-dark-border text-xs text-gray-400 hover:text-white uppercase font-semibold transition">
+                            Novo Agendamento
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="py-24 bg-dark-card border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amberWood text-xs uppercase tracking-[0.2em] font-bold block mb-2">Trabalhos Realizados</span>
+                <h2 class="vintage-font text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white">Galeria de Cortes</h2>
+                <div class="w-16 h-1 bg-amberWood mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div data-aos="fade-up" data-aos-delay="100" class="relative overflow-hidden rounded-2xl group border border-dark-border aspect-square">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=800" alt="Fade" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <p class="vintage-font font-bold text-white uppercase text-sm">Fade Perfeito</p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200" class="relative overflow-hidden rounded-2xl group border border-dark-border aspect-square">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=800" alt="Barba" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <p class="vintage-font font-bold text-white uppercase text-sm">Barboterapia</p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300" class="relative overflow-hidden rounded-2xl group border border-dark-border aspect-square">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800" alt="Ambiente" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <p class="vintage-font font-bold text-white uppercase text-sm">Ambiente Clássico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização & Contato -->
+    <section id="localizacao" class="py-24 bg-dark-base border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-amberWood text-xs uppercase tracking-[0.2em] font-bold block mb-2">Visite Nossa Cadeira</span>
+                    <h2 class="vintage-font text-3xl sm:text-4xl font-bold uppercase tracking-wide text-white mb-6">Barbearia Dom Miguere</h2>
+                    
+                    <div class="space-y-6 text-gray-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-dark-surface border border-dark-border flex items-center justify-center text-amberWood shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Endereço</h4>
+                                <p class="text-sm text-gray-400">Feira de Santana - BA</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-dark-surface border border-dark-border flex items-center justify-center text-amberWood shrink-0">
+                                <i class="fa-regular fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Horário de Funcionamento</h4>
+                                <p class="text-sm text-gray-400">Terça a Sábado: 08:30 às 19:30</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-dark-surface border border-dark-border flex items-center justify-center text-amberWood shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">WhatsApp</h4>
+                                <a href="https://wa.me/5575992143663" target="_blank" class="text-sm text-amberWood hover:underline">(75) 99214-3663</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" class="w-full h-80 rounded-2xl overflow-hidden border border-dark-border shadow-xl">
+                    <iframe 
+                        title="Mapa Dom Miguere"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.288470535359!2d-38.9664!3d-12.2576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDE1JzI3LjQiUyAzOMKwNTcnNTkuMCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                        class="w-full h-full border-0 grayscale contrast-125" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-dark-card border-t border-dark-border text-center text-xs text-gray-500">
+        <p>&copy; 2026 Barbearia Dom Miguere • Desde 2019. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5575992143663?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20a%20Barbearia%20Dom%20Miguere." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba59] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 80 });
+
+        const BARBER_PHONE = "5575992143663";
+        const BOT_TOKEN = "8764789187:AAEKGRJBAuSwTB-c-2lar85Uqny-Zg2g0Mo";
+        const CHAT_ID = "1039539665";
+        const WEBHOOK_URL = "https://hook.us2.make.com/qvtlv50r3l89rk2g94u67nqdeb2n2mb1";
+
+        function calculateBookingTotal() {
+            const checkboxes = document.querySelectorAll('input[name="services"]:checked');
+            let total = 0;
+            checkboxes.forEach(cb => total += parseFloat(cb.dataset.price));
+            document.getElementById('bookingTotalDisplay').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            return total;
+        }
+
+        async function processSmartBooking() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const date = document.getElementById('custDate').value;
+            const time = document.getElementById('custTime').value;
+            const barber = document.getElementById('custBarber').value;
+            const checkboxes = document.querySelectorAll('input[name="services"]:checked');
+
+            if (!name || !phone || !date || !time) {
+                alert('Preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            if (checkboxes.length === 0) {
+                alert('Selecione ao menos um serviço.');
+                return;
+            }
+
+            document.getElementById('btnText').classList.add('hidden');
+            document.getElementById('btnLoading').classList.remove('hidden');
+            document.getElementById('submitBtn').disabled = true;
+
+            const services = Array.from(checkboxes).map(cb => cb.value);
+            const total = calculateBookingTotal();
+            const protocol = Math.floor(100000 + Math.random() * 900000);
+
+            const [year, month, day] = date.split('-');
+            const formattedDate = `${day}/${month}/${year}`;
+
+            // Salva no LocalStorage para o painel admin
+            const newAppointment = {
+                id: Date.now(),
+                name: name,
+                phone: phone,
+                date: formattedDate,
+                time: time,
+                barber: barber,
+                services: services,
+                total: total,
+                status: "pendente"
+            };
+
+            const existingData = localStorage.getItem('dom_miguere_appointments');
+            const appointments = existingData ? JSON.parse(existingData) : [];
+            appointments.push(newAppointment);
+            localStorage.setItem('dom_miguere_appointments', JSON.stringify(appointments));
+
+            // Mensagem formatada Telegram
+            let msgTelegram = `🔔 <b>NOVO AGENDAMENTO NO SITE!</b>\n\n`;
+            msgTelegram += `📋 <b>Protocolo:</b> #${protocol}\n`;
+            msgTelegram += `👤 <b>Cliente:</b> ${name}\n`;
+            msgTelegram += `📞 <b>WhatsApp:</b> ${phone}\n`;
+            msgTelegram += `📅 <b>Data:</b> ${formattedDate} às ${time}\n`;
+            msgTelegram += `💈 <b>Barbeiro:</b> ${barber}\n\n`;
+            msgTelegram += `✂️ <b>Serviços:</b>\n`;
+            services.forEach(s => msgTelegram += ` • ${s}\n`);
+            msgTelegram += `\n💰 <b>Total:</b> R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            // Disparo direto Telegram
+            const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msgTelegram)}&parse_mode=HTML`;
+            try {
+                await fetch(telegramUrl);
+            } catch (e) {
+                const beacon = new Image();
+                beacon.src = telegramUrl;
+            }
+
+            // Disparo Webhook Make
+            try {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newAppointment)
+                });
+            } catch (err) {}
+
+            // Atualiza UI com sucesso
+            document.getElementById('successProtocol').textContent = protocol;
+            document.getElementById('successDetails').innerHTML = `
+                Horário reservado para <strong>${formattedDate}</strong> às <strong>${time}</strong> com <strong>${barber}</strong>.
+            `;
+
+            let waMsg = `🔔 *NOVO AGENDAMENTO NO SITE (DOM MIGUERE)*\n\n` +
+                        `📋 *Protocolo:* #${protocol}\n` +
+                        `👤 *Cliente:* ${name}\n` +
+                        `📞 *WhatsApp:* ${phone}\n` +
+                        `📅 *Data:* ${formattedDate} às ${time}\n` +
+                        `💈 *Barbeiro:* ${barber}\n\n` +
+                        `✂️ *Serviços:*\n` +
+                        services.map(s => ` • ${s}`).join('\n') + `\n\n` +
+                        `💰 *Total:* R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            const fallbackUrl = `https://wa.me/${BARBER_PHONE}?text=${encodeURIComponent(waMsg)}`;
+            document.getElementById('btnNotifyWhatsapp').onclick = function() {
+                window.open(fallbackUrl, '_blank');
+            };
+
+            document.getElementById('btnText').classList.remove('hidden');
+            document.getElementById('btnLoading').classList.add('hidden');
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('bookingSuccessModal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('bookingSuccessModal').classList.add('hidden');
+            document.getElementById('bookingForm').reset();
+            calculateBookingTotal();
+        }
+    </script>
+</body>
+</html>
