@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbearia Dom Miguere | Desde 2019 | Agendamento Online</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,11 +30,8 @@
         }
     </script>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- AOS Animations CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -69,7 +65,6 @@
 
     <div class="h-1.5 w-full barber-stripe"></div>
 
-    <!-- Header / Navbar -->
     <header class="sticky top-0 z-40 bg-dark-base/95 backdrop-blur-md border-b border-dark-border transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3">
@@ -99,7 +94,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1920" alt="Ambiente Dom Miguere" class="w-full h-full object-cover object-center brightness-[0.22]">
@@ -150,7 +144,6 @@
         </div>
     </section>
 
-    <!-- Serviços -->
     <section id="servicos" class="py-24 bg-dark-card border-y border-dark-border">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-16">
@@ -200,7 +193,6 @@
         </div>
     </section>
 
-    <!-- MÓDULO DE AGENDAMENTO -->
     <section id="agendamento" class="py-24 bg-dark-base relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-14">
@@ -214,7 +206,6 @@
                 
                 <form id="bookingForm" onsubmit="event.preventDefault(); processSmartBooking();" class="space-y-8">
                     
-                    <!-- 1. Serviços -->
                     <div>
                         <label class="block text-xs uppercase font-bold tracking-wider text-amberWood mb-4">
                             1. Selecione os serviços:
@@ -266,7 +257,6 @@
                         </div>
                     </div>
 
-                    <!-- 2. Dados do Cliente -->
                     <div>
                         <label class="block text-xs uppercase font-bold tracking-wider text-amberWood mb-4">
                             2. Seus dados e horário:
@@ -314,7 +304,6 @@
                         </div>
                     </div>
 
-                    <!-- Resumo -->
                     <div class="p-5 bg-dark-surface/80 rounded-xl border border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div>
                             <span class="text-xs uppercase text-gray-400 font-semibold block">Total dos Serviços</span>
@@ -323,7 +312,6 @@
                         <span class="text-xs text-gray-400 text-center sm:text-right">Pagamento efetuado presencialmente no local.</span>
                     </div>
 
-                    <!-- Botão Submit -->
                     <div>
                         <button type="submit" id="submitBtn" class="w-full flex items-center justify-center gap-3 bg-amberWood hover:bg-amberWood-hover text-black py-4 rounded-xl font-bold uppercase tracking-wider text-sm shadow-xl shadow-amberWood/20 transition transform hover:-translate-y-0.5">
                             <span id="btnText"><i class="fa-solid fa-calendar-check text-base mr-2"></i> Confirmar Agendamento</span>
@@ -333,7 +321,6 @@
 
                 </form>
 
-                <!-- Modal de Confirmação -->
                 <div id="bookingSuccessModal" class="hidden absolute inset-0 bg-dark-card/98 backdrop-blur-md rounded-2xl flex flex-col items-center justify-center p-8 text-center z-20">
                     <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center text-3xl mb-4">
                         <i class="fa-solid fa-check"></i>
@@ -359,7 +346,6 @@
         </div>
     </section>
 
-    <!-- Galeria -->
     <section id="galeria" class="py-24 bg-dark-card border-t border-dark-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center max-w-2xl mx-auto mb-16">
@@ -393,7 +379,6 @@
         </div>
     </section>
 
-    <!-- Localização & Contato -->
     <section id="localizacao" class="py-24 bg-dark-base border-t border-dark-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -437,7 +422,7 @@
                 <div data-aos="fade-left" class="w-full h-80 rounded-2xl overflow-hidden border border-dark-border shadow-xl">
                     <iframe 
                         title="Mapa Dom Miguere"
-                        src="https://maps.google.com/maps?q=Feira%20de%20Santana%20Bahia&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                        src="http://googleusercontent.com/maps.google.com/2" 
                         class="w-full h-full border-0 grayscale contrast-125" 
                         allowfullscreen="" 
                         loading="lazy">
@@ -447,23 +432,20 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-8 bg-dark-card border-t border-dark-border text-center text-xs text-gray-500">
         <p>© 2026 Barbearia Dom Miguere • Desde 2019. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5575992143663?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida%20sobre%20a%20Barbearia%20Dom%20Miguere." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba59] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true, offset: 80 });
 
-        // --- CREDENCIAIS REST SUPABASE ---
-        const SUPABASE_API = "https://jdwcnzjutafxmeswdnci.supabase.co/rest/v1";
+        // --- CREDENCIAIS REST SUPABASE CORRIGIDAS ---
+        const SUPABASE_API = "https://jdwcncjutafxmeswdnci.supabase.co/rest/v1";
         const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impkd2NuY2p1dGFmeG1lc3dkbmNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwMDM2MzAsImV4cCI6MjEwMjU3OTYzMH0.v0rlWhCqKB3zQ6DSRvLz4ninRMfyYqoVYDd5BUjJAl8";
 
         const BARBER_PHONE = "5575992143663";
@@ -473,7 +455,7 @@
 
         const HORARIOS_PADRAO = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
 
-        // Inicializa data mínima como hoje
+        // Inicializa com a data de hoje
         document.addEventListener("DOMContentLoaded", () => {
             const today = new Date().toISOString().split('T')[0];
             const dateInput = document.getElementById("custDate");
@@ -482,7 +464,7 @@
             carregarHorariosDisponiveis();
         });
 
-        // 1. Consulta horários ocupados via REST API
+        // 1. Consulta horários ocupados no banco de dados
         async function carregarHorariosDisponiveis() {
             const date = document.getElementById('custDate').value;
             const barber = document.getElementById('custBarber').value;
@@ -505,7 +487,7 @@
                     horasOcupadas = new Set(ocupados.map(item => item.hora_agendamento));
                 }
             } catch (err) {
-                console.warn("Não foi possível carregar os horários do banco:", err);
+                console.warn("Não foi possível carregar horários do banco:", err);
             }
 
             let optionsHtml = '<option value="" disabled selected>Escolha um horário</option>';
@@ -528,7 +510,7 @@
             return total;
         }
 
-        // 2. Salva o agendamento no Supabase via REST POST
+        // 2. Salva no banco e dispara as notificações
         async function processSmartBooking() {
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
@@ -592,7 +574,7 @@
                 return;
             }
 
-            // Salva no LocalStorage como cache local
+            // Salva no LocalStorage
             const newAppointment = {
                 id: Date.now(),
                 name: name,
@@ -640,7 +622,7 @@
                 });
             } catch (err) {}
 
-            // Atualiza UI com sucesso
+            // Atualiza UI com modal de sucesso
             document.getElementById('successProtocol').textContent = protocol;
             document.getElementById('successDetails').innerHTML = `
                 Horário reservado para <strong>${formattedDate}</strong> às <strong>${time}</strong> com <strong>${barber}</strong>.
