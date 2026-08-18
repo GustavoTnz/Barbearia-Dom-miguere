@@ -284,7 +284,7 @@
 
                             <div>
                                 <label class="block text-xs uppercase text-gray-400 mb-1">Data *</label>
-                                <input type="date" id="custDate" required class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                                <input type="date" id="custDate" required onchange="carregarHorariosDisponiveis()" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
                             </div>
 
                             <div>
@@ -305,7 +305,7 @@
 
                             <div class="sm:col-span-2">
                                 <label class="block text-xs uppercase text-gray-400 mb-1">Profissional de Preferência</label>
-                                <select id="custBarber" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
+                                <select id="custBarber" onchange="carregarHorariosDisponiveis()" class="w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:border-amberWood focus:outline-none transition">
                                     <option value="Miguere (Barbeiro Chefe)">Miguere (Barbeiro Chefe)</option>
                                     <option value="Profissional da Equipe">Profissional da Equipe</option>
                                     <option value="Qualquer Barbeiro Disponível">Sem preferência</option>
@@ -437,7 +437,7 @@
                 <div data-aos="fade-left" class="w-full h-80 rounded-2xl overflow-hidden border border-dark-border shadow-xl">
                     <iframe 
                         title="Mapa Dom Miguere"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.288470535359!2d-38.9664!3d-12.2576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDE1JzI3LjQiUyAzOMKwNTcnNTkuMCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                        src="https://maps.google.com/maps?q=Feira%20de%20Santana%20Bahia&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                         class="w-full h-full border-0 grayscale contrast-125" 
                         allowfullscreen="" 
                         loading="lazy">
@@ -449,7 +449,7 @@
 
     <!-- Footer -->
     <footer class="py-8 bg-dark-card border-t border-dark-border text-center text-xs text-gray-500">
-        <p>&copy; 2026 Barbearia Dom Miguere • Desde 2019. Todos os direitos reservados.</p>
+        <p>© 2026 Barbearia Dom Miguere • Desde 2019. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Botão WhatsApp Flutuante -->
@@ -462,10 +462,63 @@
     <script>
         AOS.init({ duration: 800, once: true, offset: 80 });
 
+        // --- CREDENCIAIS REST SUPABASE ---
+        const SUPABASE_API = "https://jdwcnzjutafxmeswdnci.supabase.co/rest/v1";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impkd2NuY2p1dGFmeG1lc3dkbmNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwMDM2MzAsImV4cCI6MjEwMjU3OTYzMH0.v0rlWhCqKB3zQ6DSRvLz4ninRMfyYqoVYDd5BUjJAl8";
+
         const BARBER_PHONE = "5575992143663";
         const BOT_TOKEN = "8764789187:AAEKGRJBAuSwTB-c-2lar85Uqny-Zg2g0Mo";
         const CHAT_ID = "1039539665";
         const WEBHOOK_URL = "https://hook.us2.make.com/qvtlv50r3l89rk2g94u67nqdeb2n2mb1";
+
+        const HORARIOS_PADRAO = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
+
+        // Inicializa data mínima como hoje
+        document.addEventListener("DOMContentLoaded", () => {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInput = document.getElementById("custDate");
+            dateInput.min = today;
+            dateInput.value = today;
+            carregarHorariosDisponiveis();
+        });
+
+        // 1. Consulta horários ocupados via REST API
+        async function carregarHorariosDisponiveis() {
+            const date = document.getElementById('custDate').value;
+            const barber = document.getElementById('custBarber').value;
+            const timeSelect = document.getElementById('custTime');
+
+            if (!date) return;
+
+            let horasOcupadas = new Set();
+            try {
+                const url = `${SUPABASE_API}/agendamentos?select=hora_agendamento&data_agendamento=eq.${date}&barbeiro=eq.${encodeURIComponent(barber)}&status=neq.cancelado`;
+                const response = await fetch(url, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+
+                if (response.ok) {
+                    const ocupados = await response.json();
+                    horasOcupadas = new Set(ocupados.map(item => item.hora_agendamento));
+                }
+            } catch (err) {
+                console.warn("Não foi possível carregar os horários do banco:", err);
+            }
+
+            let optionsHtml = '<option value="" disabled selected>Escolha um horário</option>';
+            HORARIOS_PADRAO.forEach(hora => {
+                const isOcupado = horasOcupadas.has(hora);
+                if (isOcupado) {
+                    optionsHtml += `<option value="${hora}" disabled class="text-gray-500 bg-dark-base">${hora} (Ocupado)</option>`;
+                } else {
+                    optionsHtml += `<option value="${hora}" class="text-white bg-dark-surface">${hora}</option>`;
+                }
+            });
+            timeSelect.innerHTML = optionsHtml;
+        }
 
         function calculateBookingTotal() {
             const checkboxes = document.querySelectorAll('input[name="services"]:checked');
@@ -475,6 +528,7 @@
             return total;
         }
 
+        // 2. Salva o agendamento no Supabase via REST POST
         async function processSmartBooking() {
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
@@ -504,7 +558,41 @@
             const [year, month, day] = date.split('-');
             const formattedDate = `${day}/${month}/${year}`;
 
-            // Salva no LocalStorage para o painel admin
+            // Envio REST direto para o banco Supabase
+            try {
+                const dbResponse = await fetch(`${SUPABASE_API}/agendamentos`, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({
+                        cliente_nome: name,
+                        cliente_telefone: phone,
+                        barbeiro: barber,
+                        servicos: services.join(', '),
+                        data_agendamento: date,
+                        hora_agendamento: time,
+                        valor: total,
+                        status: "pendente"
+                    })
+                });
+
+                if (!dbResponse.ok) {
+                    const errorText = await dbResponse.text();
+                    throw new Error(errorText || "Falha ao gravar registro.");
+                }
+            } catch (err) {
+                alert("Erro ao salvar no banco: " + err.message);
+                document.getElementById('btnText').classList.remove('hidden');
+                document.getElementById('btnLoading').classList.add('hidden');
+                document.getElementById('submitBtn').disabled = false;
+                return;
+            }
+
+            // Salva no LocalStorage como cache local
             const newAppointment = {
                 id: Date.now(),
                 name: name,
@@ -533,7 +621,7 @@
             services.forEach(s => msgTelegram += ` • ${s}\n`);
             msgTelegram += `\n💰 <b>Total:</b> R$ ${total.toFixed(2).replace('.', ',')}`;
 
-            // Disparo direto Telegram
+            // Disparo Telegram
             const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msgTelegram)}&parse_mode=HTML`;
             try {
                 await fetch(telegramUrl);
@@ -577,12 +665,15 @@
             document.getElementById('btnLoading').classList.add('hidden');
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('bookingSuccessModal').classList.remove('hidden');
+
+            carregarHorariosDisponiveis();
         }
 
         function closeSuccessModal() {
             document.getElementById('bookingSuccessModal').classList.add('hidden');
             document.getElementById('bookingForm').reset();
             calculateBookingTotal();
+            carregarHorariosDisponiveis();
         }
     </script>
 </body>
